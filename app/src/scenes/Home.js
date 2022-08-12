@@ -14,7 +14,6 @@ const Home = ({navigation}) => {
       <FlatList
         data={cities}
         renderItem={item => {
-          console.log('in flatlist', item);
           return (
             <TouchableOpacity
               style={styles.item}
