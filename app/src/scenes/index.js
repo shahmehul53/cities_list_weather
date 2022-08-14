@@ -1,3 +1,3 @@
-import Details from './Details';
-import Home from './Home';
-export {Details,Home};
+import Details from './Details/Details';
+import Home from './Home/Home';
+export {Details, Home};

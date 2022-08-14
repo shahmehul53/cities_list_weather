@@ -1,22 +1,32 @@
+import {
+  GET_WEATHER_DATA,
+  RESPONSE_FAILURE,
+  SET_WEATHER_DATA,
+} from '../actions/ActionTypes';
+
 const initialState = {
   cityData: {},
+  error: {},
+  // loading: false
 };
 
 export default (state = initialState, action) => {
-  console.log('in reducer', state, action.type, action.payload);
-  console.log('action', action);
   switch (action.type) {
-    case 'GET_WEATHER_DATA':
+    case GET_WEATHER_DATA:
       return {
         ...state,
-        //  cityData: action.payload,
-        //  loading: false,
+        // loading: true
       };
-    case 'SET_WEATHER_DATA':
-      console.log('action success', action);
+    case SET_WEATHER_DATA:
       return {
         ...state,
         cityData: action.payload,
+        //  loading: false,
+      };
+    case RESPONSE_FAILURE:
+      return {
+        ...state,
+        error: action.error,
         //  loading: false,
       };
 

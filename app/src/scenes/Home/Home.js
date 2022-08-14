@@ -1,27 +1,8 @@
 import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {cities} from '../Cities';
-import axios from 'axios';
-import R from '../R';
+import {cities} from '../../Utils/Cities';
 
 const Home = ({navigation}) => {
-  const [citiesData, setCitiesData] = useState([]);
-
-  useEffect(() => {
-    setCitiesData(cities);
-
-    // getTemp();
-  }, []);
-
-  const getTemp = () => {
-    axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${cities?.coord?.lat}&lon=${cities?.coord?.lon}&appid=${R.strings.API_KEY}`,
-    ).then((res) => {
-      console.log("res", res);
-      
-    }).catch((err) => console.log(err))
-  };
-
   return (
     <View>
       <FlatList
@@ -35,7 +16,7 @@ const Home = ({navigation}) => {
                   data: item,
                 })
               }>
-              <Text style={styles.title}>{item.item.name}</Text>
+              <Text style={styles.title}>{item?.item?.name}</Text>
             </TouchableOpacity>
           );
         }}
